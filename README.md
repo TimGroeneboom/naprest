@@ -30,7 +30,7 @@ Example of how to create your RestFunction // API call in Napkin :
 
 You can also use the NAP rest module to make API calls from your NAP application. Just create a RestClient device and call the `get` method.
 
-You can choose to make a blocking call or a non-blocking call. Both the non-blocking and blocking call will execute the callbacks on the main thread during the update loop of the RestService.
+You can choose to make a blocking call or a non-blocking call. The non-blocking call will execute the callbacks on the main thread during the update loop of the RestService.
 
 ```cpp
 /**
