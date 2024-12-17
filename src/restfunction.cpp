@@ -48,6 +48,29 @@ namespace nap
                 data.AddMember(rapidjson::StringRef(value->mName.c_str()), rapidjson::StringRef(val), data.GetAllocator());
                 continue;
             }
+
+            if(value->getRepresentedType() == RTTI_OF(bool))
+            {
+                bool val = static_cast<const APIBool&>(*value.get()).mValue;
+                data.AddMember(rapidjson::StringRef(value->mName.c_str()), val, data.GetAllocator());
+                continue;
+            }
+
+            if(value->getRepresentedType() == RTTI_OF(double))
+            {
+                double val = static_cast<const APIDouble&>(*value.get()).mValue;
+                data.AddMember(rapidjson::StringRef(value->mName.c_str()), val, data.GetAllocator());
+                continue;
+            }
+
+            if(value->getRepresentedType() == RTTI_OF(long))
+            {
+                long val = static_cast<const APILong&>(*value.get()).mValue;
+                data.AddMember(rapidjson::StringRef(value->mName.c_str()), val, data.GetAllocator());
+                continue;
+            }
+
+            nap::Logger::warn(*this, "Unsupported value type: %s, ignoring", value->getRepresentedType().get_name().to_string().c_str());
         }
 
         // Serialize the response

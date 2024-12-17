@@ -38,6 +38,7 @@ namespace nap
 
         /**
          * The function to call when the rest call is made
+         * Note: this function is called from a server worker thread
          * @param values reference to values map
          * @return RestResponse the response to the call, will be sent back to the client
          */

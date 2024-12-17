@@ -41,7 +41,7 @@
         {
             "Type": "nap::RestEchoFunction",
             "mID": "RestEchoFunction",
-            "Address": "echo",
+            "Address": "/echo",
             "ValueDescriptions": [
                 {
                     "Type": "nap::RestValueFloat",
@@ -77,8 +77,7 @@
         {
             "Type": "nap::Scene",
             "mID": "Scene",
-            "Entities": [
-            ]
+            "Entities": []
         }
     ]
 }

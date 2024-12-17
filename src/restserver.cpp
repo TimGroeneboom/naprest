@@ -123,11 +123,8 @@ namespace nap
 
         for(auto& function : functions)
         {
-            // Create address
-            std::string address = "/" + function->mAddress;
-
             // Add function callback to server
-            mImpl->mServer.Get(address, [this, &function](const httplib::Request& req, httplib::Response& res)
+            mImpl->mServer.Get(function->mAddress, [this, &function](const httplib::Request& req, httplib::Response& res)
             {
                 // Create map of values
                 std::unordered_map<std::string, std::unique_ptr<APIBaseValue>> values;

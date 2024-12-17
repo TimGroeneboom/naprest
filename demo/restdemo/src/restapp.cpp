@@ -112,7 +112,21 @@ namespace nap
     	// The following windows construct a REST API call
     	if (ImGui::Begin("Rest Client"))
     	{
-    		ImGui::Text("Make a rest call to %s", mRestClient->mURL.c_str());
+            const auto& palette = mGuiService->getPalette();
+            ImGui::TextColored(palette.mHighlightColor2, "RestClient");
+            ImGui::Text("This demonstrates a simple call to a REST API served by this application using a RestClient device");
+            ImGui::Text("Alternatively, open the browser and navigate to the URL below to see the API response");
+            ImGui::Spacing(); ImGui::Spacing();
+            std::string url = utility::stringFormat("%s%s?intValue=%i&floatValue=%.2f&stringValue=%s",
+                                                    mRestClient->mURL.c_str(),
+                                                    mAddressString.c_str(),
+                                                    mIntInput,
+                                                    mFloatInput,
+                                                    mStringInput.c_str());
+    		ImGui::TextColored(palette.mHighlightColor2, "%s", url.c_str());
+            if(ImGui::Button("Copy URL To Clipboard"))
+                ImGui::SetClipboardText(url.c_str());
+            ImGui::Spacing(); ImGui::Spacing();
     		ImGui::InputText("Address", &mAddressString);
     		ImGui::InputText("Text", &mStringInput);
     		ImGui::InputInt("Int", &mIntInput);
