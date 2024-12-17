@@ -31,6 +31,9 @@ namespace nap
          */
         RestServer(RestService& service);
 
+        // Default destructor
+        ~RestServer();
+
         /**
          * Creates the implementation
          * @param errorState returns the error state

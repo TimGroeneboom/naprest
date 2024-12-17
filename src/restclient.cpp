@@ -51,8 +51,11 @@ namespace nap
     ////////////////////////////////////////////////////////////////////////////
 
     RestClient::RestClient(RestService &service) : mService(service)
-    {
-    }
+    {}
+
+
+    RestClient::~RestClient()
+    {}
 
 
     bool RestClient::init(nap::utility::ErrorState &errorState)

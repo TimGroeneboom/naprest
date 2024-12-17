@@ -53,6 +53,9 @@ namespace nap
     }
 
 
+    RestServer::~RestServer(){}
+
+
     bool RestServer::init(nap::utility::ErrorState& errorState)
     {
         mImpl = std::make_unique<Impl>();

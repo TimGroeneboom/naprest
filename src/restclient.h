@@ -39,6 +39,9 @@ namespace nap
          */
         RestClient(RestService& service);
 
+        // default destructor
+        ~RestClient();
+
         /**
          * Initializes the client
          * @param errorState contains the error state
